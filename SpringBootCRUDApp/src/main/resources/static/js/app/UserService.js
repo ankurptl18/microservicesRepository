@@ -11,7 +11,9 @@ angular.module('crudApp').factory('UserService',
 	                getUser: getUser,
 	                createUser: createUser,
 	                updateUser: updateUser,
-	                removeUser: removeUser
+	                removeUser: removeUser,
+	                createUserTemp: createUserTemp,
+	                createUserTemp8080 : createUserTemp8080
 	            };
 
 	            return factory;
@@ -74,23 +76,6 @@ angular.module('crudApp').factory('UserService',
 	                return deferred.promise;
 	            }
 	            
-	            function createUser8080(user) {
-	                console.log('Creating User');
-	                var deferred = $q.defer();
-	                $http.post(urls.USER_SERVICE_API_8080, user)
-	                    .then(
-	                        function (response) {
-	                            loadAllUsers();
-	                            deferred.resolve(response.data);
-	                        },
-	                        function (errResponse) {
-	                           console.error('Error while creating User : '+errResponse.data.errorMessage);
-	                           deferred.reject(errResponse);
-	                        }
-	                    );
-	                return deferred.promise;
-	            }
-
 	            function updateUser(user, id) {
 	                console.log('Updating User with id '+id);
 	                var deferred = $q.defer();
@@ -120,6 +105,62 @@ angular.module('crudApp').factory('UserService',
 	                        function (errResponse) {
 	                            console.error('Error while removing User with id :'+id);
 	                            deferred.reject(errResponse);
+	                        }
+	                    );
+	                return deferred.promise;
+	            }
+	            
+	            $scope.reset = function(){
+		        	console.log('About to create Emplpoyee');
+		        	UserService.createUser30003(user)
+	                .then(
+	                    function (response) {
+	                        console.log('User created successfully');
+	                        $scope.successMessage = 'Employee created successfully';
+	                        $scope.errorMessage='';
+	                        $scope.done = true;
+	                        $scope.user={};
+	                        $scope.myForm.$setPristine();
+	                    },
+	                    function (errResponse) {
+	                        console.error('Error while creating Employee');
+	                        $scope.errorMessage = 'Error while creating employee: ' + errResponse.data.errorMessage;
+	                        $scope.successMessage='';
+	                    }
+	                );
+		        }
+
+	         // for 30003
+	            function createUserTemp(user) {
+	                console.log('Creating User');
+	                var deferred = $q.defer();
+	                $http.post(urls.USER_SERVICE_API_30003, user)
+	                    .then(
+	                        function (response) {
+	                            loadAllUsers();
+	                            deferred.resolve(response.data);
+	                        },
+	                        function (errResponse) {
+	                           console.log('Error while creating User : ' + errResponse.data.errorMessage);
+	                           deferred.reject(errResponse);
+	                        }
+	                    );
+	                return deferred.promise;
+	            }
+
+	            // for 8080
+	            function createUserTemp8080(user) {
+	                console.log('Creating User');
+	                var deferred = $q.defer();
+	                $http.post(urls.USER_SERVICE_API_8080, user)
+	                    .then(
+	                        function (response) {
+	                            loadAllUsers();
+	                            deferred.resolve(response.data);
+	                        },
+	                        function (errResponse) {
+	                           console.log('Error while creating User : '+errResponse.data.errorMessage);
+	                           deferred.reject(errResponse);
 	                        }
 	                    );
 	                return deferred.promise;

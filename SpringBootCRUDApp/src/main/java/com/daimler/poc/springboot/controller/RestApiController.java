@@ -19,7 +19,7 @@ public class RestApiController {
 	private static String MANAGER_SERVICE = "http://manager-service/api/manager/";
 
 	@RequestMapping(value = "/managerDetails/", method = RequestMethod.POST)
-	public String getManagerDetails() {
+	public String addManagerDetails() {
 
 		String response = restTemplate
 				.exchange(MANAGER_SERVICE, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
@@ -35,7 +35,7 @@ public class RestApiController {
 	private static String MANAGER_SERVICE_8080 = "http://manager-service:8080/api/manager/";
 
 	@RequestMapping(value = "/managerDetails8080/", method = RequestMethod.POST)
-	public String getManagerDetails8080() {
+	public String addManagerDetails8080() {
 
 		String response = restTemplate
 				.exchange(MANAGER_SERVICE_8080, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
@@ -51,7 +51,7 @@ public class RestApiController {
 	private static String MANAGER_SERVICE_30003 = "http://manager-service:30003/api/manager/";
 
 	@RequestMapping(value = "/managerDetails30003/", method = RequestMethod.POST)
-	public String getManagerDetails30003() {
+	public String addManagerDetails30003() {
 
 		String response = restTemplate
 				.exchange(MANAGER_SERVICE_30003, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
@@ -67,7 +67,7 @@ public class RestApiController {
 	private static String EMPLOYEE_SERVICE = "http://emp-service/api/employee/";
 
 	@RequestMapping(value = "/employeeDetails/", method = RequestMethod.POST)
-	public String getEmployeeDetails() {
+	public String addEmployeeDetails() {
 
 		String response = restTemplate
 				.exchange(EMPLOYEE_SERVICE, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
@@ -83,7 +83,7 @@ public class RestApiController {
 	private static String EMPLOYEE_SERVICE_8080 = "http://emp-service:8080/api/employee/";
 
 	@RequestMapping(value = "/employeeDetails8080/", method = RequestMethod.POST)
-	public String getEmployeeDetails8080() {
+	public String addEmployeeDetails8080() {
 
 		String response = restTemplate
 				.exchange(EMPLOYEE_SERVICE_8080, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
@@ -99,7 +99,7 @@ public class RestApiController {
 	private static String EMPLOYEE_SERVICE_30003 = "http://emp-service:30003/api/employee/";
 
 	@RequestMapping(value = "/employeeDetails30003/", method = RequestMethod.POST)
-	public String getEmployeeDetails30003() {
+	public String addEmployeeDetails30003() {
 
 		String response = restTemplate
 				.exchange(EMPLOYEE_SERVICE_30003, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {

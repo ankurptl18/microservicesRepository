@@ -5,10 +5,11 @@ app.constant('urls', {
     USER_SERVICE_API : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails/',
     EMP_SERVICE_API : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails/',
     	
-    	USER_SERVICE_API_8080 : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails8080/',
-        EMP_SERVICE_API_8080 : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails8080/',
-        	USER_SERVICE_API_30003 : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails30003/',
-            EMP_SERVICE_API_30003 : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails30003/'
+    USER_SERVICE_API_8080 : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails8080/',
+    EMP_SERVICE_API_8080 : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails8080/',
+       
+    USER_SERVICE_API_30003 : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails30003/',
+    EMP_SERVICE_API_30003 : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails30003/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',

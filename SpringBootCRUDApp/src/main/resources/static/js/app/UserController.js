@@ -108,5 +108,47 @@ angular.module('crudApp').controller('UserController', function( UserService, $s
             $scope.user={};
             $scope.myForm.$setPristine(); //reset Form
         }
+        
+
+	     // function to call 30003 port web service
+	        $scope.callOther30003 = function(){
+	        	console.log('About to create Emplpoyee');
+	            UserService.createUserTemp($scope.user)
+               .then(
+                   function (response) {
+                       console.log('User created successfully');
+                       $scope.successMessage = 'Employee created successfully';
+                       $scope.errorMessage='';
+                       $scope.done = true;
+                       $scope.user={};
+                       $scope.myForm.$setPristine();
+                   },
+                   function (errResponse) {
+                       console.error('Error while creating Employee');
+                       $scope.errorMessage = 'Error while creating employee: ' + errResponse.data.errorMessage;
+                       $scope.successMessage='';
+                   }
+               );
+	        };
+	        
+	        $scope.callOther8080 = function(){
+	        	console.log('About to create Emplpoyee');
+	            UserService.createUserTemp8080($scope.user)
+               .then(
+                   function (response) {
+                       console.log('User created successfully');
+                       $scope.successMessage = 'Employee created successfully';
+                       $scope.errorMessage='';
+                       $scope.done = true;
+                       $scope.user={};
+                       $scope.myForm.$setPristine();
+                   },
+                   function (errResponse) {
+                       console.error('Error while creating Employee');
+                       $scope.errorMessage = 'Error while creating employee: ' + errResponse.data.errorMessage;
+                       $scope.successMessage='';
+                   }
+               );
+	        };
 
 });

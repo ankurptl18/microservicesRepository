@@ -38,9 +38,9 @@
 	                <div class="row">
 	                    <div class="form-actions floatRight">
 	                        <button type="button" value="Add30003" class="btn btn-primary btn-sm" ng-click="callOther30003();">Add30003</button>
-	                        <!--input type="button" value="{{!user.id ? 'Add:8080' : 'Update:8080'}}" class="btn btn-primary btn-sm" ng-disabled="userForm.$invalid || userForm.$pristine" ng-click="callOtherfun();" />
-	                        <input type="submit" value="{{!user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="userForm.$invalid || userForm.$pristine" /-->
-	                        <button type="button" ng-click="reset()" class="btn btn-warning btn-sm" ng-disabled="userForm.$pristine">Reset Form</button>
+	                   		<button type="button" value="Add8080" class="btn btn-primary btn-sm" ng-click="callOther8080();">Add8080</button>
+	                        <button type="button" value="Add" class="btn btn-primary btn-sm" ng-click="createUser();">Add</button>
+	                        <button type="button" ng-click="reset()" class="btn btn-warning btn-sm" ng-disabled="employeeForm.$pristine">Reset Form</button>
 	                    </div>
 	                </div>
 	            </form>
@@ -119,7 +119,8 @@
 	                <div class="row">
 	                    <div class="form-actions floatRight">
 	                   		<button type="button" value="Add30003" class="btn btn-primary btn-sm" ng-click="callOther30003();">Add30003</button>
-	                        <input type="submit"  value="{{!user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="employee.$invalid || employee.$pristine">
+	                   		<button type="button" value="Add8080" class="btn btn-primary btn-sm" ng-click="callOther8080();">Add8080</button>
+	                        <button type="button" value="Add" class="btn btn-primary btn-sm" ng-click="createUser();">Add</button>
 	                        <button type="button" ng-click="reset()" class="btn btn-warning btn-sm" ng-disabled="employeeForm.$pristine">Reset Form</button>
 	                    </div>
 	                </div>

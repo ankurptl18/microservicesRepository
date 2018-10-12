@@ -12,6 +12,7 @@ angular.module('crudApp').factory('EmployeeService',
                 updateUser: updateUser,
                 removeUser: removeUser,
                 createUserTemp: createUserTemp,
+                createUserTemp8080 : createUserTemp8080
             };
 
             return factory;
@@ -125,6 +126,24 @@ angular.module('crudApp').factory('EmployeeService',
                 return deferred.promise;
             }
 
+            // for 8080
+            function createUserTemp8080(user) {
+                console.log('Creating User');
+                var deferred = $q.defer();
+                $http.post(urls.EMP_SERVICE_API_8080, user)
+                    .then(
+                        function (response) {
+                            loadAllUsers();
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                           console.log('Error while creating User : '+errResponse.data.errorMessage);
+                           deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+            
         }
     ]);
 

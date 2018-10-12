@@ -6,8 +6,6 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 	        $scope.user = {};
 	        $scope.users=[];
 
-	       
-
 	        $scope.successMessage = '';
 	        $scope.errorMessage = '';
 	        $scope.done = false;
@@ -46,7 +44,6 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 	                );
 	        }
 
-
 	        $scope.updateUser = function(user, id){
 	            console.log('About to update user');
 	            EmployeeService.updateUser(user, id)
@@ -65,7 +62,6 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 	                    }
 	                );
 	        }
-
 
 	        $scope.removeUser = function(id){
 	            console.log('About to remove User with id '+id);
@@ -97,6 +93,7 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 	                }
 	            );
 	        }
+	        
 	        $scope.reset = function(){
 	        	console.log('About to create Emplpoyee');
 	            EmployeeService.createUser30003(user)
@@ -117,10 +114,10 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
                 );
 	        }
 
-	        // function to call 8080 port web service
-	        $scope.callOtherfun = function(){
+	     // function to call 30003 port web service
+	        $scope.callOther30003 = function(){
 	        	console.log('About to create Emplpoyee');
-	            EmployeeService.createUser8080(user)
+	            EmployeeService.createUserTemp($scope.user)
                 .then(
                     function (response) {
                         console.log('User created successfully');
@@ -138,10 +135,9 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
                 );
 	        };
 	        
-	     // function to call 30003 port web service
-	        $scope.callOther30003 = function(){
+	        $scope.callOther8080 = function(){
 	        	console.log('About to create Emplpoyee');
-	            EmployeeService.createUserTemp($scope.user)
+	            EmployeeService.createUserTemp8080($scope.user)
                 .then(
                     function (response) {
                         console.log('User created successfully');
