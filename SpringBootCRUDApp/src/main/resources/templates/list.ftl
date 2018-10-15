@@ -37,8 +37,6 @@
 
 	                <div class="row">
 	                    <div class="form-actions floatRight">
-	                        <button type="button" value="Add30003" class="btn btn-primary btn-sm" ng-click="callOther30003();">Add30003</button>
-	                   		<button type="button" value="Add8080" class="btn btn-primary btn-sm" ng-click="callOther8080();">Add8080</button>
 	                        <button type="button" value="Add" class="btn btn-primary btn-sm" ng-click="createUser();">Add</button>
 	                        <button type="button" ng-click="reset()" class="btn btn-warning btn-sm" ng-disabled="employeeForm.$pristine">Reset Form</button>
 	                    </div>
@@ -118,8 +116,6 @@
 
 	                <div class="row">
 	                    <div class="form-actions floatRight">
-	                   		<button type="button" value="Add30003" class="btn btn-primary btn-sm" ng-click="callOther30003();">Add30003</button>
-	                   		<button type="button" value="Add8080" class="btn btn-primary btn-sm" ng-click="callOther8080();">Add8080</button>
 	                        <button type="button" value="Add" class="btn btn-primary btn-sm" ng-click="createUser();">Add</button>
 	                        <button type="button" ng-click="reset()" class="btn btn-warning btn-sm" ng-disabled="employeeForm.$pristine">Reset Form</button>
 	                    </div>

@@ -1,15 +1,16 @@
 var app = angular.module('crudApp',['ui.router','ngStorage']);
 
 app.constant('urls', {
-    BASE: 'http://localhost:8092/SpringBootCRUDApp',
-    USER_SERVICE_API : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails/',
-    EMP_SERVICE_API : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails/',
-    	
-    USER_SERVICE_API_8080 : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails8080/',
-    EMP_SERVICE_API_8080 : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails8080/',
-       
-    USER_SERVICE_API_30003 : 'http://localhost:8092/SpringBootCRUDApp/api/managerDetails30003/',
-    EMP_SERVICE_API_30003 : 'http://localhost:8092/SpringBootCRUDApp/api/employeeDetails30003/'
+    USER_SERVICE_API : 'api/manager/',
+    EMP_SERVICE_API : 'api/employee/',
+    CREATE_MANAGER_SERVICE_API : 'api/addManager/',
+    CREATE_EMPLOYEE_SERVICE_API : 'api/addEmployee/',
+    LOAD_MANAGER_SERVICE_API : 'api/loadManager/',
+    LOAD_EMPLOYEE_SERVICE_API : 'api/loadEmlpoyee/',
+    REMOVE_MANAGER_SERVICE_API : 'api/removeManager/',
+    REMOVE_EMPLOYEE_SERVICE_API : 'api/removeEmployee/',
+    
+    
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',

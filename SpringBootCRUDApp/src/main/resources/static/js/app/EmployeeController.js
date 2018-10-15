@@ -1,6 +1,5 @@
 'use strict';
 
-
 angular.module('crudApp').controller('EmployeeController', function( EmployeeService, $scope) {
 
 	        $scope.user = {};
@@ -26,6 +25,7 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 
 	        $scope.createUser = function(user) {
 	            console.log('About to create Emplpoyee');
+	            user = $scope.user;
 	            EmployeeService.createUser(user)
 	                .then(
 	                    function (response) {
@@ -94,65 +94,11 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 	            );
 	        }
 	        
-	        $scope.reset = function(){
-	        	console.log('About to create Emplpoyee');
-	            EmployeeService.createUser30003(user)
-                .then(
-                    function (response) {
-                        console.log('User created successfully');
-                        $scope.successMessage = 'Employee created successfully';
-                        $scope.errorMessage='';
-                        $scope.done = true;
-                        $scope.user={};
-                        $scope.myForm.$setPristine();
-                    },
-                    function (errResponse) {
-                        console.error('Error while creating Employee');
-                        $scope.errorMessage = 'Error while creating employee: ' + errResponse.data.errorMessage;
-                        $scope.successMessage='';
-                    }
-                );
+	        function reset(){
+	            $scope.successMessage='';
+	            $scope.errorMessage='';
+	            $scope.user={};
+	            $scope.myForm.$setPristine(); //reset Form
 	        }
 
-	     // function to call 30003 port web service
-	        $scope.callOther30003 = function(){
-	        	console.log('About to create Emplpoyee');
-	            EmployeeService.createUserTemp($scope.user)
-                .then(
-                    function (response) {
-                        console.log('User created successfully');
-                        $scope.successMessage = 'Employee created successfully';
-                        $scope.errorMessage='';
-                        $scope.done = true;
-                        $scope.user={};
-                        $scope.myForm.$setPristine();
-                    },
-                    function (errResponse) {
-                        console.error('Error while creating Employee');
-                        $scope.errorMessage = 'Error while creating employee: ' + errResponse.data.errorMessage;
-                        $scope.successMessage='';
-                    }
-                );
-	        };
-	        
-	        $scope.callOther8080 = function(){
-	        	console.log('About to create Emplpoyee');
-	            EmployeeService.createUserTemp8080($scope.user)
-                .then(
-                    function (response) {
-                        console.log('User created successfully');
-                        $scope.successMessage = 'Employee created successfully';
-                        $scope.errorMessage='';
-                        $scope.done = true;
-                        $scope.user={};
-                        $scope.myForm.$setPristine();
-                    },
-                    function (errResponse) {
-                        console.error('Error while creating Employee');
-                        $scope.errorMessage = 'Error while creating employee: ' + errResponse.data.errorMessage;
-                        $scope.successMessage='';
-                    }
-                );
-	        };
-	        
 });

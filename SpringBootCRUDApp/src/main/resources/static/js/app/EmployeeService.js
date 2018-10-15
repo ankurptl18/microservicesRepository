@@ -11,8 +11,6 @@ angular.module('crudApp').factory('EmployeeService',
                 createUser: createUser,
                 updateUser: updateUser,
                 removeUser: removeUser,
-                createUserTemp: createUserTemp,
-                createUserTemp8080 : createUserTemp8080
             };
 
             return factory;
@@ -43,8 +41,11 @@ angular.module('crudApp').factory('EmployeeService',
             function getUser(id) {
                 console.log('Fetching User with id :'+id);
                 var deferred = $q.defer();
-                $http.get(urls.EMP_SERVICE_API + id)
-                    .then(
+                $http({
+                    url: urls.LOAD_EMPLOYEE_SERVICE_API, 
+                    method: "GET",
+                    params: {id:id}
+                 }).then(
                         function (response) {
                             console.log('Fetched successfully User with id :'+id);
                             deferred.resolve(response.data);
@@ -60,7 +61,7 @@ angular.module('crudApp').factory('EmployeeService',
             function createUser(user) {
                 console.log('Creating User');
                 var deferred = $q.defer();
-                $http.post(urls.EMP_SERVICE_API, user)
+                $http.post(urls.CREATE_EMPLOYEE_SERVICE_API, user)
                     .then(
                         function (response) {
                             loadAllUsers();
@@ -94,7 +95,13 @@ angular.module('crudApp').factory('EmployeeService',
             function removeUser(id) {
                 console.log('Removing User with id '+id);
                 var deferred = $q.defer();
-                $http.delete(urls.EMP_SERVICE_API + id)
+                
+                $http({
+                    url: urls.REMOVE_EMPLOYEE_SERVICE_API, 
+                    method: "DELETE",
+                    params: {id:id}
+                 })
+                //$http.delete(urls.REMOVE_EMPLOYEE_SERVICE_API + id)
                     .then(
                         function (response) {
                             loadAllUsers();
@@ -103,42 +110,6 @@ angular.module('crudApp').factory('EmployeeService',
                         function (errResponse) {
                             console.log('Error while removing User with id :'+id);
                             deferred.reject(errResponse);
-                        }
-                    );
-                return deferred.promise;
-            }
-            
-            // for 30003
-            function createUserTemp(user) {
-                console.log('Creating User');
-                var deferred = $q.defer();
-                $http.post(urls.EMP_SERVICE_API_30003, user)
-                    .then(
-                        function (response) {
-                            loadAllUsers();
-                            deferred.resolve(response.data);
-                        },
-                        function (errResponse) {
-                           console.log('Error while creating User : '+errResponse.data.errorMessage);
-                           deferred.reject(errResponse);
-                        }
-                    );
-                return deferred.promise;
-            }
-
-            // for 8080
-            function createUserTemp8080(user) {
-                console.log('Creating User');
-                var deferred = $q.defer();
-                $http.post(urls.EMP_SERVICE_API_8080, user)
-                    .then(
-                        function (response) {
-                            loadAllUsers();
-                            deferred.resolve(response.data);
-                        },
-                        function (errResponse) {
-                           console.log('Error while creating User : '+errResponse.data.errorMessage);
-                           deferred.reject(errResponse);
                         }
                     );
                 return deferred.promise;
