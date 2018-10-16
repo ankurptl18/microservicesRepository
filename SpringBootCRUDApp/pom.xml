@@ -46,7 +46,7 @@
 			<artifactId>h2</artifactId>
 			<version>${h2.version}</version>
 		</dependency>
-		<!-- Add MySQL database support [for running with PRODUCTION profile] -->		
+		<!-- Add MySQL database support [ for running with PRODUCTION profile ] -->		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
