@@ -20,7 +20,7 @@
 	</properties>
 
 	<dependencies>
-		<!-- Add typical dependencies for a web application  -->
+		<!-- Add typical dependencies for a web applicatio  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
