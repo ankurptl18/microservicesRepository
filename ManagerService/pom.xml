@@ -21,6 +21,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+    		<groupId>c3p0</groupId>
+    		<artifactId>c3p0</artifactId>
+    		<version>0.9.1.2</version>
+		</dependency>
 		<!-- Add typical dependencies for a web application -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

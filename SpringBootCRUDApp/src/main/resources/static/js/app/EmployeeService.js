@@ -11,6 +11,7 @@ angular.module('crudApp').factory('EmployeeService',
                 createUser: createUser,
                 updateUser: updateUser,
                 removeUser: removeUser,
+                getHostName : getHostName
             };
 
             return factory;
@@ -115,6 +116,42 @@ angular.module('crudApp').factory('EmployeeService',
                 return deferred.promise;
             }
             
+            function getHostName() {
+
+                var deferred = $q.defer();
+                $http.get(urls.HOSTNAME_EMPLOYEE_SERVICE_API)
+                    .then(
+                        function (response) {
+                            console.log('host name :-' + response.data.hostname);
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            	
+            	
+               /* var deferred = $q.defer();
+                
+                $http.get(urls.HOSTNAME_EMPLOYEE_SERVICE_API)
+                
+                $http({
+                    url: urls.HOSTNAME_EMPLOYEE_SERVICE_API, 
+                    method: "GET",
+                 })
+                    .then(
+                        function (response) {
+                        	console.log("host name response -: " + response);
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }*/
+            }
         }
     ]);
 

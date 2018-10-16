@@ -12,6 +12,7 @@ angular.module('crudApp').factory('UserService',
 	                createUser: createUser,
 	                updateUser: updateUser,
 	                removeUser: removeUser,
+	                getHostName : getHostName
 	            };
 
 	            return factory;
@@ -123,6 +124,25 @@ angular.module('crudApp').factory('UserService',
 		            $scope.user={};
 		            $scope.myForm.$setPristine(); //reset Form
 		        }
+	            
+	            function getHostName() {
+	                var deferred = $q.defer();
+	                
+	                $http({
+	                    url: urls.HOSTNAME_MANAGER_SERVICE_API, 
+	                    method: "GET",
+	                 })
+	                    .then(
+	                        function (response) {
+	                        	console.log("host name response -: " + response.data.hostname);
+	                        	deferred.resolve(response.data);
+	                        },
+	                        function (errResponse) {
+	                            deferred.reject(errResponse);
+	                        }
+	                    );
+	                return deferred.promise;
+	            }
 
 
 	        }

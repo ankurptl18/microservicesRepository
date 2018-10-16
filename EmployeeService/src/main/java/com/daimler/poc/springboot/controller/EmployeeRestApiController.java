@@ -1,5 +1,7 @@
 package com.daimler.poc.springboot.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -132,6 +134,27 @@ public class EmployeeRestApiController {
 
 		userService.deleteAllUsers();
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+	}
+	
+	// ------------------- GET THE HOSTNAME -------------------
+	
+	@RequestMapping(value = "/hostname/", method = RequestMethod.GET)
+	public ResponseEntity<String> getHostName() {
+		logger.info("Getting hostname");
+		String hostname = "" ;
+		
+		try {
+			InetAddress IP=InetAddress.getLocalHost();
+			hostname = IP.getHostName();
+			
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		logger.info(" Host Name -: {}", hostname);
+		
+		return new ResponseEntity<String>(hostname, HttpStatus.OK);
 	}
 
 }

@@ -1,0 +1,77 @@
+<div class="generic-container" ng-init="initStuff()">
+    <div class="panel panel-default wd-40 pull-left">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Manager Details - {{managerHostName.hostname}} </span></div>
+        <div class="panel-body input-container">
+            <div class="formcontainer">
+                <form ng-submit="submit()" name="form.managerForm" class="form-horizontal">
+                    <input type="hidden" ng-model="managerData.id" />
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable lbl" for="uname">Name</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="managerData.name" id="uname" class="username form-control input-sm wd-100" placeholder="Enter Name" required ng-minlength="3"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable lbl" for="age">Age</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="managerData.age" id="age" class="form-control input-sm wd-60" placeholder="Enter Age" required ng-pattern="onlyIntegers"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable lbl" for="salary">Salary</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="managerData.salary" id="salary" class="form-control input-sm wd-60" placeholder="Enter Salary" required ng-pattern="onlyNumbers"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-actions floatRight">
+                            <button type="button" value="Add" class="btn btn-primary btn-sm custom-btn" ng-click="submitManagerData();" ng-bind-html="managerData.id === '' ? 'Save' : 'Update'">Add</button>
+                            <button type="button" ng-click="resetManagerData()" class="btn btn-warning btn-sm custom-btn" ng-disabled="managerForm.$pristine">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>	
+    </div>
+    <div class="panel panel-default wd-55 pull-right">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">List of Managers </span></div>
+        <div class="panel-body table-data">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="wd-10">Sr No</th>
+                            <th class="wd-40">Name</th>
+                            <th class="wd-10 text-right">Age</th>
+                            <th class="wd-20 text-right">Salary</th>
+                            <th class="wd-20">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="manager in managerList">
+                            <td class="wd-10">{{manager.id}}</td>
+                            <td class="wd-40">{{manager.name}}</td>
+                            <td class="wd-10 text-right">{{manager.age}}</td>
+                            <td class="wd-20 text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{manager.salary | number}}</td>
+                            <td class="wd-20">
+                                <button type="button" class="action-icon" ng-click="updatedManagerDetails(manager.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                <button type="button" class="action-icon" ng-click="archiveManager(manager.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>		
+            </div>
+        </div>
+    </div>
+</div>

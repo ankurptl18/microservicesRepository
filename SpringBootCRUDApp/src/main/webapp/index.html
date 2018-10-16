@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-app="springbootApp">
+        <!--[if lte IE 8]>
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <!--div class="blocker-bg"><div class="blocker"></div></div-->
+        <table class="wraptable">
+            <tr valign="top">
+                <td class="headertd">
+                    <div class="header">
+                        <header class="nav-header">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href><div class="title-text"></div></a>
+                                <a class="navbar-brand" href><span class="sub-title-text">Microservices App</span></a>
+                            </div>
+                            <div class="pull-right user-info">
+                                <div class="pull-left dropdown">
+                                    <button class="dropdown-toggle dp-button login-dp" title="Help" data-toggle="dropdown">
+                                        <i class="fa fa-question-circle"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li>
+                                            <a class="lbl" href="help.html" target="_">Help Document</a>
+                                        </li>
+                                        <li>
+                                            <a class="lbl" href ng-click="$root.playHelpVideo();">Help Video</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pull-left dropdown">
+                                    <button class="dropdown-toggle dp-button login-dp" title="User Action" data-toggle="dropdown">
+                                        <i class="fa fa-user"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li>
+                                            <span class="lbl username-text">Ankur Patel</span>
+                                        </li>
+                                        <li>
+                                            <a href ng-click="logout();">Logout <i class="fa fa-power-off fa-fw pull-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>                                
+                            </div>
+
+                        </header>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="contenttd" ng-view="">
+                    <div id="content">
+
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td class="footertd">
+                    <footer>
+                        <div class="footer-text">All Rights Reserved. HCL 2018</div>
+                    </footer>
+                </td>
+            </tr>
+        </table>
+
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+        <script src="bower_components/angular-environment/dist/angular-environment.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/dataService.js"></script>
+        <script src="scripts/directive/_employee.js"></script>     
+        <script src="scripts/directive/_manager.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

@@ -1,0 +1,24 @@
+.content-data .content { margin: 0px auto; }
+
+.tab-group-head { font-size: 13px; font-family: open-sans-semibold; color: #6fabd2; padding: 10px 20px 0px 0px; }
+.nav-tabs { border-bottom: 0px; float: left; }
+.nav-tabs > li > a { margin: 0px 7px 0px 0px; }
+.nav > li > a { font-size: 12px; padding: 8px 15px; font-family: open-sans-semibold; border-radius: 4px 4px 0px 0px; border: 1px solid #eee; border-bottom: 0px; background-color: #eee; color: #333; }
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus { background-color: #6fabd2 !important; color: #fff !important; border: 1px solid #6fabd2 !IMPORTANT; }
+.tab-content { border: 1px solid #eee; overflow-y: auto; padding: 10px; width: 100%; }
+
+
+/* content related css */
+.panel { border: 0px; box-shadow: none; margin: 0px; }
+.panel-default > .panel-heading { color: #fff; background-color: #6fabd2; border: 0px; padding: 6px 15px; }
+.panel-default > .panel-heading .lead { font-size: 12px; font-family: open-sans-semibold; }
+.panel .panel-body { border: 1px solid #f1f1f1; padding: 10px; }
+.panel .panel-body.input-container { padding: 20px 10px; }
+.panel .panel-body.table-data { padding: 0px; }
+.panel .panel-body.table-data TABLE TR TH { font-family: open-sans-semibold; font-size: 11px; border: 0px; background: #fafafa; border-bottom: 1px solid #f1f1f1; padding: 7px 10px; }
+.panel .panel-body.table-data TABLE TR TH:last-child, .panel .panel-body.table-data TABLE TR TD:last-child { text-align: center; }
+.panel .panel-body.table-data TABLE TR TD { font-family: open-sans-semibold; font-size: 11px; border: 0px; border-bottom: 1px solid #f1f1f1; padding: 5px 10px; vertical-align: middle; }
+.action-icon { color: #333; border: 1px solid #ededed; background: #fff; border-radius: 50%; height: 24px; width: 24px; line-height: 0px; }
+.action-icon:hover { background: #fafafa; }

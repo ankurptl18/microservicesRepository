@@ -176,6 +176,47 @@ public class UIRestApiController {
 	}
 
 	/********************************************************************************************/
+	
+	private static String MANAGER_SERVICE_HOSTNAME = "http://manager-service:8082/api/hostname/";
+	//private static String MANAGER_SERVICE_HOSTNAME = "http://localhost:8082/api/hostname/";
+	
+	@RequestMapping(value = "/ManagerhostName/", method = RequestMethod.GET)
+	public ResponseEntity<User> getManagerHostName() {
+
+		String response = restTemplate
+				.exchange(MANAGER_SERVICE_HOSTNAME, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+				}).getBody();
+
+		System.out.println(" Manager Service Host Name -: {}" + response);
+		
+		User user = new User();
+		user.setHostname(response);
+
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+
+	}
+	
+	/********************************************************************************************/
+	
+	private static String EMPLOYEE_SERVICE_HOSTNAME = "http://emp-service:8081/api/hostname/";
+	//private static String EMPLOYEE_SERVICE_HOSTNAME = "http://localhost:8081/api/hostname/";
+	
+	@RequestMapping(value = "/EmployeehostName/", method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> getEmployeeHostName() {
+
+		String response = restTemplate
+				.exchange(EMPLOYEE_SERVICE_HOSTNAME, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+				}).getBody();
+
+		System.out.println(" Employee Service Host Name -: {}" + response);
+
+
+		User user = new User();
+		user.setHostname(response);
+
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+
+	}
 
 	@Bean
 	public RestTemplate restTemplate() {

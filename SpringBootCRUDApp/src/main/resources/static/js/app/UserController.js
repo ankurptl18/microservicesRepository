@@ -4,6 +4,7 @@ angular.module('crudApp').controller('UserController', function( UserService, $s
 
 		$scope.user = {};
         $scope.users=[];
+        $scope.ManagerhostName = '';
         
         $scope.submit = submit;
         $scope.getAllUsers = getAllUsers;
@@ -108,6 +109,21 @@ angular.module('crudApp').controller('UserController', function( UserService, $s
             $scope.errorMessage='';
             $scope.user={};
             $scope.myForm.$setPristine(); //reset Form
+        }
+        
+        $scope.loadHostName = function() {
+            console.log('Getting Host Name of Manager Service');
+            UserService.getHostName()
+                .then(
+                    function (response) {
+                        $scope.ManagerhostName = response.hostname;
+                    },
+                    function (errResponse) {
+                        console.error('Error while loading host name');
+                        $scope.errorMessage = 'Error while loading host name : ' + errResponse.data.errorMessage;
+                        $scope.successMessage='';
+                    }
+                );
         }
 	    
 });

@@ -1,0 +1,77 @@
+<div class="generic-container" ng-init="initStuff()">
+    <div class="panel panel-default wd-40 pull-left">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Employee Details -  {{employeeHostName.hostname}}</span></div>
+        <div class="panel-body input-container">
+            <div class="formcontainer">
+                <form ng-submit="submit()" name="form.employeeForm" class="form-horizontal">
+                    <input type="hidden" ng-model="employeeData.id" />
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable lbl" for="uname">Name</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="employeeData.name" id="uname" class="username form-control input-sm" placeholder="Enter Name" required ng-minlength="3"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable lbl" for="age">Age</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="employeeData.age" id="age" class="form-control input-sm wd-60" placeholder="Enter Age" required ng-pattern="onlyIntegers"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable lbl" for="salary">Salary</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="employeeData.salary" id="salary" class="form-control input-sm  wd-60" placeholder="Enter Salary" required ng-pattern="onlyNumbers"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-actions floatRight">
+                            <button type="submit" value="Add" class="btn btn-primary btn-sm custom-btn" ng-click="submitEmployeeData();" ng-bind-html="employeeData.id === '' ? 'Save' : 'Update'"></button>
+                            <button type="button" ng-click="resetEmployeeData()" class="btn btn-warning btn-sm custom-btn" ng-disabled="employeeForm.$pristine">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>	
+    </div>
+    <div class="panel panel-default wd-55 pull-right">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">List of Employees </span></div>
+        <div class="panel-body table-data">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="wd-10">Sr No</th>
+                            <th class="wd-40">Name</th>
+                            <th class="wd-10 text-right">Age</th>
+                            <th class="wd-20 text-right">Salary</th>
+                            <th class="wd-20">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in employeeList">
+                            <td class="wd-10">{{employee.id}}</td>
+                            <td class="wd-40">{{employee.name}}</td>
+                            <td class="wd-10 text-right">{{employee.age}}</td>
+                            <td class="wd-20 text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{employee.salary | number}}</td>
+                            <td class="wd-20">
+                                <button type="button" class="action-icon" ng-click="updatedEmployeeDetails(employee.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                <button type="button" class="action-icon" ng-click="archiveEmployee(employee.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>		
+            </div>
+        </div>
+    </div>
+</div>

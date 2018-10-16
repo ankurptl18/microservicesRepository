@@ -10,6 +10,9 @@ app.constant('urls', {
     REMOVE_MANAGER_SERVICE_API : 'api/removeManager/',
     REMOVE_EMPLOYEE_SERVICE_API : 'api/removeEmployee/',
     
+    HOSTNAME_EMPLOYEE_SERVICE_API : 'api/EmployeehostName/',
+    HOSTNAME_MANAGER_SERVICE_API : 'api/ManagerhostName/',
+    
     
 });
 
@@ -27,6 +30,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
                         var deferred = $q.defer();
                         UserService.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         EmployeeService.loadAllUsers().then(deferred.resolve, deferred.resolve);
+                        EmployeeService.getHostName().then(deferred.resolve, deferred.resolve);
+                        UserService.getHostName().then(deferred.resolve, deferred.resolve);
+                        
                         return deferred.promise;
                     }
                 }

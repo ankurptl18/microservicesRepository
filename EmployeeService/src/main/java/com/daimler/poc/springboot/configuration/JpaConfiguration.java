@@ -24,15 +24,20 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JpaConfiguration {
 
 	private Properties jpaProperties() {
+		
 		Properties properties = new Properties();
 		properties.put(org.hibernate.cfg.Environment.URL, "jdbc:mysql://teameaappdb.mysql.database.azure.com:3306/poc?autoReconnect=true"); 
 		properties.put(org.hibernate.cfg.Environment.DRIVER, "com.mysql.jdbc.Driver");
 		properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		
 		properties.put(org.hibernate.cfg.Environment.USER, "teamea@teameaappdb");
 		properties.put(org.hibernate.cfg.Environment.PASS, "ID@5166992051651758");
+
+		properties.put("c3p0.min_size", 5);
+		properties.put("c3p0.max_size", 20);
+		properties.put("c3p0.timeout", 1800);
+		properties.put("c3p0.max_statements", 50);
 		
 		return properties;
 	}

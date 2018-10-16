@@ -4,6 +4,7 @@
         <div class="panel-heading"><span class="lead">Manager Details </span></div>
 		<div class="panel-body">
 	        <div class="formcontainer">
+	        	<div class="alert alert-success" role="alert" >IP ADDRESS : {{EmployeehostName}}</div>
 	            <div class="alert alert-success" role="alert" ng-if="successMessage">{{successMessage}}</div>
 	            <div class="alert alert-danger" role="alert" ng-if="errorMessage">{{errorMessage}}</div>
 	            <form ng-submit="submit()" name="userForm" class="form-horizontal">
@@ -83,6 +84,7 @@
         <div class="panel-heading"><span class="lead">Employee Details </span></div>
 		<div class="panel-body">
 	        <div class="formcontainer">
+	        <div class="alert alert-success" role="alert" >IP ADDRESS :  {{ManagerhostName}}</div>
 	            <div class="alert alert-success" role="alert" ng-if="successMessage">{{successMessage}}</div>
 	            <div class="alert alert-danger" role="alert" ng-if="errorMessage">{{errorMessage}}</div>
 	            <form ng-submit="submit()" name="employeeForm" class="form-horizontal">

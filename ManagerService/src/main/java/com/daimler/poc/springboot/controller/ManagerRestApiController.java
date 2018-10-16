@@ -30,32 +30,21 @@ public class ManagerRestApiController {
 	@Autowired
 	ManagerService userService; //Service which will do all data retrieval/manipulation work
 
-	// ------------------- Retrieve All Users---------------------------------------------
+	// ------------------- Retrieve All Users -------------------
 
 	@RequestMapping(value = "/manager/", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> listAllUsers() {
 		List<User> users = userService.findAllUsers();
 
-		try {
-			InetAddress IP=InetAddress.getLocalHost();
-			System.out.println(IP.getHostName());
-			
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		if (users.isEmpty()) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 			// You many decide to return HttpStatus.NOT_FOUND
 		}
 		
-		
-		
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 
-	// -------------------Retrieve Single User------------------------------------------
+	// ------------------- Retrieve Single User -------------------
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUser(@PathVariable("id") long id) {
@@ -69,7 +58,7 @@ public class ManagerRestApiController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
-	// -------------------Create a User-------------------------------------------
+	// -------------------Create a User -------------------
 
 	@RequestMapping(value = "/user/", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
@@ -87,7 +76,7 @@ public class ManagerRestApiController {
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 
-	// ------------------- Update a User ------------------------------------------------
+	// ------------------- Update a User -------------------
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
@@ -109,7 +98,7 @@ public class ManagerRestApiController {
 		return new ResponseEntity<User>(currentUser, HttpStatus.OK);
 	}
 
-	// ------------------- Delete a User-----------------------------------------
+	// ------------------- Delete a User -------------------
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
@@ -128,7 +117,7 @@ public class ManagerRestApiController {
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
 
-	// ------------------- Delete All Users-----------------------------
+	// ------------------- Delete All Users -------------------
 
 	@RequestMapping(value = "/user/", method = RequestMethod.DELETE)
 	public ResponseEntity<User> deleteAllUsers() {
@@ -136,6 +125,29 @@ public class ManagerRestApiController {
 
 		userService.deleteAllUsers();
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+	}
+	
+	// ------------------- GET THE HOSTNAME -------------------
+	
+	@RequestMapping(value = "/hostname/", method = RequestMethod.GET)
+	public ResponseEntity<String> getHostName() {
+		logger.info("Getting hostname");
+		
+		String hostname = "" ;
+		
+		try {
+			
+			InetAddress IP=InetAddress.getLocalHost();
+			hostname = IP.getHostName();
+			
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		logger.info(" Host Name -: {}", hostname);
+		
+		return new ResponseEntity<String>(hostname, HttpStatus.OK);
 	}
 
 }

@@ -4,6 +4,7 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 
 	        $scope.user = {};
 	        $scope.users=[];
+	        $scope.EmployeehostName = '';
 
 	        $scope.successMessage = '';
 	        $scope.errorMessage = '';
@@ -99,6 +100,21 @@ angular.module('crudApp').controller('EmployeeController', function( EmployeeSer
 	            $scope.errorMessage='';
 	            $scope.user={};
 	            $scope.myForm.$setPristine(); //reset Form
+	        }
+	        
+	        $scope.loadHostName = function() {
+	            console.log('Getting Host Name of Employee Service');
+	            EmployeeService.getHostName()
+	                .then(
+	                    function (response) {
+	                        $scope.EmployeehostName = response.hostname;
+	                    },
+	                    function (errResponse) {
+	                        console.error('Error while loading host name');
+	                        $scope.errorMessage = 'Error while loading host name : ' + errResponse.data.errorMessage;
+	                        $scope.successMessage='';
+	                    }
+	                );
 	        }
 
 });

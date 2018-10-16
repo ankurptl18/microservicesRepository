@@ -1,0 +1,35 @@
+<div class="proj-container wd-100" ng-controller="MainCtrl" ng-init="loadInit()">
+    <div class="preloader-bg">
+        <div class="preloader"></div>
+    </div>
+    <div class="projtable wd-100">        
+        <div class="projbody wd-100">
+            <div class="alert alert-{{btType}}" ng-show="alertMessage !== '' ">
+                <!--a href class="close" data-dismiss="alert" aria-label="close">&times;</a-->
+                <i class="fa fa-thumbs-up" ng-show="btType == 'success'"></i> 
+                <i class="fa fa-exclamation-triangle" ng-show="btType == 'warning'"></i>
+                <i class="fa fa-info-circle" ng-show="btType == 'info'"></i>
+                <i class="fa fa-bullhorn" ng-show="btType == 'danger'"></i>
+                &nbsp; {{alertMessage}}
+            </div>
+
+            <table class="content-container wd-100">
+                <tr valign="top">
+                    <td class="content-data wd-100">
+                        <div class="content wd-95">                
+                            <uib-tabset>
+                                <uib-tab heading="Manager Details">
+                                    <manager></manager>                                
+                                </uib-tab>
+
+                                <uib-tab heading="Employee Details">
+                                    <employee></employee>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
