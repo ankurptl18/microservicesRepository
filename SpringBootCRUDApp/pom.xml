@@ -20,7 +20,7 @@
 	</properties>
 
 	<dependencies>
-		<!-- Add typical dependencies for a web application -->
+		<!-- Add typical dependencies for a web application  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -30,7 +30,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
-		<!-- Add JPA support -->
+		<!-- Add JPA supports -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
